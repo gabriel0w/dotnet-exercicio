@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace dotnet_curso
     {
         private static string[] GetInputList()
         {
-            string[] filePaths = Directory.GetFiles(@"C:\Users\gabri\OneDrive\Área de Trabalho\dotnet_curso\inputs", "*.json");
+            string[] filePaths = Directory.GetFiles(@"..\..\..\inputs", "*.json");
 
             return filePaths;
         }
