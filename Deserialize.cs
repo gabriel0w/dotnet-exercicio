@@ -11,8 +11,18 @@ namespace dotnet_curso
 {
     internal class Deserialize
     {
+        public Dictionary<string, List<string>> Data()
+        {
+            return new Dictionary<string, List<string>>
+                {
+                    { "Nomes", new List<string>() },
+                    { "Telefones", new List<string>() }
+                };
+        }
         public void Deserialization(string[] jsonString)
         {
+            var dicionario = Data();
+
             var fileContent = string.Empty;
             if (jsonString != null)
             {
@@ -20,6 +30,10 @@ namespace dotnet_curso
                 {
                     fileContent = File.ReadAllText(path, Encoding.GetEncoding("ISO-8859-1"));
                     var pessoa = JsonConvert.DeserializeObject<ModelJson>(fileContent);
+
+                    dicionario["Nomes"].Add(pessoa.Nome);
+                    dicionario["Telefones"].Add(pessoa.Telefone);
+
                     Console.WriteLine(pessoa.Nome);
                     Console.WriteLine(pessoa.Telefone);
                 }
